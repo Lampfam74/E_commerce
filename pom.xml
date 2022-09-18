@@ -12,7 +12,7 @@
 	<groupId>sn.lamp.E-commerce</groupId>
 	<artifactId>E-commerce1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>E-commerce1</name>
+	<name>E-commerce</name>
 	<description>E-commerceproject for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
