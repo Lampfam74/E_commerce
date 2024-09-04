@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Categorie </title>
+<link rel="stylesheet" href="/bootstrap1/css/bootstrap.min.css" />
+<link rel="stylesheet" th:href="@{/style.css}" />
+<link rel="stylesheet" href="/bootstrap1/js/bootstrap.js" />
+<script type="text/javascript" th:src="@{/style.js}"> </script>
+
+
+</head>
+<body>
+
+	<div>
+		<div class="container my-4">
+			<div class="col-lg-6 col-md-6 container justify-content-center card">
+    <h1 class="text-center">Edit Categorie</h1>
+				<div class="card-body">
+					<form th:action="@{/categorie/add} " th:object="${categorie}" method="POST">
+						<div class="form-group">
+							<label>Code</label> <input type="text" name="code" th:field="*{code}"
+								class="form-control" placeholder="code categorie" />
+						</div>
+						<div class="form-group">
+							<label>Libelle</label> <input type="text" name="libelle" 
+							th:field="*{libelle}"
+								class="form-control" placeholder="libelle" />
+						</div>
+						
+						<div class="box-footer col-lg-6">
+							<input th:type="reset" value="annuler" class="brn btn-warning">
+							<input th:type="submit" value="Add" class="brn btn-primary"/>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

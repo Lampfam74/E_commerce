@@ -11,25 +11,17 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-
-import sn.lamp.Ecommerce.model.ProductImages;
 import sn.lamp.Ecommerce.model.Products;
 import sn.lamp.Ecommerce.repository.productRepository;
-import sn.lamp.Ecommerce.service.productImagesService;
 import sn.lamp.Ecommerce.service.productService;
 
 @Service
-@Transactional
 public  class productServiceImpl implements productService {
 	@Autowired
 	private productRepository productRepository;
 	@Autowired
-	private uploadServiceIpml upload;
-	@Autowired
-	private productImagesService imagesService; 
-
+	private uploadServiceIpml uploadServiceIpml;
 	@Override
 	public Products saveProduct(Products prod) throws Exception {
 		if (prod == null)
@@ -39,7 +31,7 @@ public  class productServiceImpl implements productService {
 		
 		String fil = file.getOriginalFilename();
 		String fileName = FilenameUtils.getBaseName(fil) + "." + FilenameUtils.getExtension(fil);
-		File path = upload.getPathService(fileName,"img");
+		File path = uploadServiceIpml.getPathService(fileName,"img");
 		if (path != null) {
 			try {
 				FileUtils.writeByteArrayToFile(path, file.getBytes());
