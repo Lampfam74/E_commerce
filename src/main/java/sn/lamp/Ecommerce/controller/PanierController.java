@@ -26,6 +26,7 @@ public class PanierController {
 		m.addAttribute("product", products);
 		m.addAttribute("count",products.size());
 		products.forEach(element->System.out.println(element.getLibelle()));
+		System.out.println(products.size());
 		
 		return "redirect:/";
 	}
